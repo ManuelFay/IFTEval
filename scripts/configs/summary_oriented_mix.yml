@@ -1,0 +1,116 @@
+config:
+  (): scripts.DataMixConfig
+  mix_name: "summary_oriented_mix"
+  output_dir: !path ../../outputs/summary_oriented_mix/
+  validation_split_ratio: 0.1
+  test_split_ratio: 0.1
+  tokenizer:
+      (): scripts.wrapper.AutoTokenizerWrapper
+      pretrained_model_name_or_path: "illuin/french-alpaca-v1"
+      use_fast: false
+  max_length: 2048
+  datasets:
+    #  Alpaca with GPT-4
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Classify/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Code/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/ContextAnswer/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Create/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Extract/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Logic/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/MemoryAnswer/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/MemorySummarize/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Other/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Rewrite/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Summarize/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Translate/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/self_instruct/original_alpaca/categories/Write/alpaca_gpt4_en.jsonl
+      output_key: "output"
+      input_key: "input"
+      instruction_key: "instruction"
+
+    # Synthetic summaries
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/summarization/untargeted_abstractive_summarization/synthetic_data/synthetic_mails/fr/synthetic_mails_fr.jsonl
+      output_key: "summary"
+      input_key: "context"
+      num_samples: 100
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/summarization/untargeted_abstractive_summarization/synthetic_data/synthetic_medical_report/synthetic_medical_report_fr.jsonl
+      output_key: "summary"
+      input_key: "context"
+    # Natural summaries
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/summarization/untargeted_abstractive_summarization/natural_data/dialogsum/dialogsum_en.jsonl
+      output_key: "summary"
+      input_key: "context"
+      num_samples: 100
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/summarization/untargeted_abstractive_summarization/natural_data/xsum/xsum_en.jsonl
+      output_key: "summary"
+      input_key: "context"
+      num_samples: 100
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/summarization/untargeted_abstractive_summarization/natural_data/summarize_from_feedback/summarize_from_feedback_en.jsonl
+      output_key: "summary"
+      input_key: "context"
+      num_samples: 200
+    # Hybrid summaries
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/summarization/untargeted_abstractive_summarization/hybrid_data/neovie/neovie_fr.jsonl
+      output_key: "summary"
+      input_key: "context"
+      num_samples: 200
+    - (): scripts.DatasetConfig
+      input_file: !path ../../tasks/summarization/untargeted_abstractive_summarization/hybrid_data/pandas_documentation/pandas_documentation_en.jsonl
+      output_key: "summary"
+      input_key: "context"
+      num_samples: 100
