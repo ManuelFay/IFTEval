@@ -1,6 +1,6 @@
 # Revisiting Instruction Fine-tuned Model Evaluation to Guide Industrial Applications
 
-This repository contains the code for the EMNLP 2023 paper [Revisiting Instruction Fine-tuned Model Evaluation to Guide Industrial Applications](https://arxiv.org/abs/XXX).
+This repository contains the code for the EMNLP 2023 paper [Revisiting Instruction Fine-tuned Model Evaluation to Guide Industrial Applications](https://arxiv.org/abs/2310.14103).
 
 
 ## Abstract 
