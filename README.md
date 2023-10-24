@@ -12,11 +12,13 @@ Instruction Fine-Tuning (IFT) is a powerful paradigm that strengthens the zero-s
 If you use this code for your research, please cite our paper:
 
 ```
-@article{faysse2023revisiting,
-  title={Revisiting Instruction Fine-tuned Model Evaluation to Guide Industrial Applications},
-  author={Manuel Faysse, Gautier Viaud, Céline Hudelot, Pierre Colombo},
-  journal={EMNLP},
-  year={2023}
+@misc{faysse2023revisiting,
+      title={Revisiting Instruction Fine-tuned Model Evaluation to Guide Industrial Applications}, 
+      author={Manuel Faysse and Gautier Viaud and Céline Hudelot and Pierre Colombo},
+      year={2023},
+      eprint={2310.14103},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
 }
 ```
 
